@@ -1,11 +1,5 @@
-export interface IRoom{
-    totalRooms : number;
-    availableRooms : number;
-    bookedRooms : number;
-}
-
 export interface IRoomList{
-    roomNbr : number;
+    id?: number; 
     roomType : string;
     amenties : string;
     price : number;

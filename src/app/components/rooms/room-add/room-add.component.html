@@ -1,0 +1,38 @@
+<form #formData="ngForm" (ngSubmit)="addRoom(formData)">
+    <div class="mb-3">
+        <input required type="text" minlength="5" maxlength="10" #roomType="ngModel" name="roomType"
+            [(ngModel)]="room.roomType" class="form-control" required placeholder="RoomType">
+
+        <div *ngIf="roomType.dirty">
+            <div class="alert alert-danger my-2" role="alert" *ngIf="roomType.errors?.['minlength']">
+                minlength 5
+            </div>
+            <div class="alert alert-danger my-2" role="alert" *ngIf="roomType.errors?.['required']">
+                required
+            </div>
+        </div>
+
+    </div>
+    <div class="mb-3">
+        <input required type="text" name="amenties" [(ngModel)]="room.amenties" class="form-control"
+            placeholder="amenties">
+    </div>
+    <div class="mb-3">
+        <input required type="number" name="price" [(ngModel)]="room.price" class="form-control" placeholder="price">
+    </div>
+    <div class="mb-3">
+        <input required type="text" name="photos" [(ngModel)]="room.photos" class="form-control" placeholder="photos">
+    </div>
+    <div class="mb-3">
+        <input required type="date" name="checkInTime" [(ngModel)]="room.checkInTime" class="form-control"
+            placeholder="checkInTime">
+    </div>
+    <div class="mb-3">
+        <input required type="date" name="checkOutTime" [(ngModel)]="room.checkOutTime" class="form-control"
+            placeholder="checkOutTime">
+    </div>
+    <div>
+        <button class="btn btn-primary" [disabled]="!formData.valid" type="submit">Submit</button>
+    </div>
+</form>
+ 

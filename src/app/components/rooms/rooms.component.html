@@ -1,18 +1,6 @@
-<app-header></app-header>
-<app-header></app-header>
-<app-header></app-header>
-
-
-{{rooms.totalRooms}}
-<br>
-<div *ngIf="selectedRoom">
-    {{selectedRoom | json}}
+<h2>Rooms Component</h2>
+<div *ngIf="roomsList">
+    <app-rooms-list [roomsList]="roomsList"></app-rooms-list>
 </div>
 
-
-<button class="btn btn-primary" (click)="addRoom()" >Add Room</button>
-
-<div *ngIf="rooms.availableRooms > 0">
-    <app-rooms-list [rooms]="roomList" (selectedRoomEmit)="selectRoom($event)">
-    </app-rooms-list>
-</div> 
+<router-outlet></router-outlet>
